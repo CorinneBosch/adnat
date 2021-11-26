@@ -1,7 +1,7 @@
-require "test_helper"
+require "rails_helper"
 
 RSpec.describe OrganisationsController, type: :controller do
-  # id "the truth" do
-  #   assert true
-  # end
+  it "the truth" do
+    assert true
+  end
 end

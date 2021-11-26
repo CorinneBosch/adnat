@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+organisations = [
+  {
+    name: 'Workforce',
+    hourly_rate: 12.50
+  },
+  {
+    name: 'Makers',
+    hourly_rate: 15.00
+  },
+  {
+    name: 'Tanda',
+    hourly_rate: 18.00
+  }
+]
+
+organisations.each { |org| Organisation.create(org) }
