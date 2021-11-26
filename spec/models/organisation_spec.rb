@@ -16,4 +16,14 @@ RSpec.describe Organisation, type: :model do
     org_2 = Organisation.create(name: 'Hogwarts', hourly_rate: 12.50)
     expect(org_2).to_not be_valid
   end
+
+  it "validates presence of name" do
+    org = Organisation.create(hourly_rate: 12.50)
+    expect(org).to_not be_valid
+  end
+
+  it "validates presence of hourly rate" do
+    org = Organisation.create(name: 'Hogwarts')
+    expect(org).to_not be_valid
+  end
 end
