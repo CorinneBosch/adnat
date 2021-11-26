@@ -1,22 +1,23 @@
 class OrganisationsController < ApplicationController
   def index
     @organisations = Organisation.all.order(created_at: :desc)
+    @organisation = Organisation.new
   end
 
   def show
     @organisation = Organisation.find(params[:id])
   end
 
-  def new
-    @organisation = Organisation.new 
-  end
+  # def new
+  #   @organisation = Organisation.new 
+  # end
 
   def create
     @organisation = Organisation.create(org_params)
     if @organisation.save
-      redirect_to @organisation #, notice: 'Organisation created successfully!'
+      redirect_to @organisation, notice: 'Organisation created successfully!'
     else
-      render :new #, notice: 'Oops something went wront.. Please try again!'
+      render :index, notice: 'Oops something went wront.. Please try again!'
     end
   end
 
