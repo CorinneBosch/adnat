@@ -4,6 +4,8 @@
   <% @organisations.each do |org| %>
     <li>
       <%= org.name %>
+      <a href="<%= organisation_path(org) %>">join</a> 
     </li>
   <% end %>
 </ul>
+
