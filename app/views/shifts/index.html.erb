@@ -17,33 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @org_shifts.each do |shift| %>
-      <tr>
-        <td><%= shift.employee %></td>
-        <td><%= shift.shift_start.strftime('%m/%d/%Y')%></td>
-        <td><%= shift.shift_start.strftime('%H:%M%P')%></td>
-        <td><%= shift.shift_end.strftime('%H:%M%P') %></td>
-        <% hours_worked = total_hours_worked(
-                                   shift.shift_start, 
-                                   shift.shift_end,
-                                   shift.break_length)%>
-        <td><%= shift.break_length %></td>
-        <td><%= hours_worked %></td>
-        <td>£ <%= '%.2f' % round_to_quarter(@organisation.hourly_rate * hours_worked) %></td>
-        <td><%= link_to "Delete", [@organisation, shift],
-            method: :delete,
-            data: { confirm: "Are you sure?" } %></td>
-      </tr>
-    <% end %>
-    <%= form_with model: [ @organisation, @organisation.shifts.build ] do |form| %>
-      <tr>
-        <td><%= form.text_field :employee %></td>
-        <td><%= form.date_field :shift_start_date %></td>
-        <td><%= form.time_field :shift_start_time %></td>
-        <td><%= form.time_field :shift_end %></td>
-        <td><%= form.text_field :break_length %></td>
-        <td><%= form.submit %></td>
-      </tr>
-    <% end %>
+    <%= render partial: "shifts/show" %> 
+    <%= render partial: "shifts/form" %> 
   </tbody>
 </table>
