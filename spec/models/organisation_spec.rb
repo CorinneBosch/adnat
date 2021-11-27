@@ -8,7 +8,6 @@ RSpec.describe Organisation, type: :model do
     organisation = add_new_org
     assert organisation.save
     expect(organisation).to be_valid
-  # end
   end
 
   it "validates uniqueness of organisation" do
@@ -18,12 +17,12 @@ RSpec.describe Organisation, type: :model do
   end
 
   it "validates presence of name" do
-    org = Organisation.create(hourly_rate: 12.50)
+    org = Organisation.create(name: nil, hourly_rate: 12.50)
     expect(org).to_not be_valid
   end
 
   it "validates presence of hourly rate" do
-    org = Organisation.create(name: 'Hogwarts')
+    org = Organisation.create(name: 'Hogwarts', hourly_rate: nil)
     expect(org).to_not be_valid
   end
 end
