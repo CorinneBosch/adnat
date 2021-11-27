@@ -6,6 +6,7 @@ class OrganisationsController < ApplicationController
 
   def show
     @organisation = Organisation.find(params[:id])
+    @org_shifts = @organisation.shifts.all.order(created_at: :desc)
   end
 
   # def new
