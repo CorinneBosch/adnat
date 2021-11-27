@@ -1,8 +1,68 @@
 <h2><%= @organisation.name %></h2>
-
 <p><%= @organisation.hourly_rate %></p>
 
 <%= link_to "Edit", edit_organisation_path(@organisation) %>
 <%= link_to "Delete", organisation_path(@organisation),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
+
+<%= @organisation.name %>
+<table>
+  <thead>
+    <tr>
+      <th>Employee Name</td>
+      <th>Shift date</td>
+      <th>Start time</td>
+      <th>Finish time</td>
+      <th>Break length (min)</td>
+      <th>Hours worked</td>
+      <th>Shift cost</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jane Doe</td>
+      <td>06/11/2021</td>
+      <td>09:00am</td>
+      <td>01:00pm</td>
+      <td>30</td>
+      <td>3.5</td>
+      <td>£ 35.00</td>
+    </tr>
+    <% @organisation.shifts.each do |shift| %>
+      <tr>
+        <td><%= shift.employee %></td>
+        <td><%= shift.shift_start %></td>
+        <td></td>
+        <td><%= shift.shift_end %></td>
+        <td><%= shift.break_length %></td>
+        <td></td>
+        <td>£<%= '%.2f' % @organisation.hourly_rate %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <%# <%= form_with model: [ @organisation, @organisation.shift.build ] do |form| %> %>
+        <%# <td><%= form.text_field :employee %></td> %>
+
+
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      <%# <% end %> %>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <% @organisation.shifts.each do |shift| %>
+    <li>
+      <%= shift.employee %>
+      <%= shift.shift_start %>
+      <%= shift.shift_end %>
+      <%= shift.break_length %>
+    </li>
+  <% end %>
+</ul>

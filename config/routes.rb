@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'organisations#index'
   
-  resources :organisations
+  resources :organisations do
+    resources :shifts
+  end
   # get 'organisations', to: 'organisations#index'
   # get 'organisations/:id', to: 'organisations#show'
 
