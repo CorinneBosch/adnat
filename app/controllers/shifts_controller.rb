@@ -1,10 +1,22 @@
 class ShiftsController < ApplicationController
   before_action :join_params, only: [:create]
 
+  def index
+    @organisation = Organisation.find(params[:organisation_id])
+    @org_shifts = @organisation.shifts.all.order(created_at: :desc)
+  end
+
   def create 
     @organisation = Organisation.find(params[:organisation_id])
     @shift = @organisation.shifts.create(shift_params)
-    redirect_to organisation_path(@organisation), notice: 'Shift added!'
+    redirect_to organisation_shifts_path(@organisation), notice: 'Shift added!'
+  end
+
+  def destroy
+    @organisation = Organisation.find(params[:organisation_id])
+    @shift = @organisation.shifts.find(params[:id])
+    @shift.destroy
+    redirect_to organisation_shifts_path(@organisation), notice: 'Shift deleted!'
   end
 
   private
