@@ -25,9 +25,13 @@
         <td><%= shift.shift_start.strftime('%m/%d/%Y')%></td>
         <td><%= shift.shift_start.strftime('%H:%M%P')%></td>
         <td><%= shift.shift_end.strftime('%H:%M%P') %></td>
+        <% hours_worked = total_hours_worked(
+                                   shift.shift_start, 
+                                   shift.shift_end,
+                                   shift.break_length)%>
         <td><%= shift.break_length %></td>
-        <td></td>
-        <td>£ <%= '%.2f' % @organisation.hourly_rate %></td>
+        <td><%= hours_worked %></td>
+        <td>£ <%= '%.2f' % round_to_quarter(@organisation.hourly_rate * hours_worked) %></td>
       </tr>
     <% end %>
     <%= form_with model: [ @organisation, @organisation.shifts.build ] do |form| %>
