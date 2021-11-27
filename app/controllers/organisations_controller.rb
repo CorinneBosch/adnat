@@ -12,6 +12,15 @@ class OrganisationsController < ApplicationController
   #   @organisation = Organisation.new 
   # end
 
+  def create
+    @organisation = Organisation.create(org_params)
+    if @organisation.save
+      redirect_to @organisation, notice: 'Organisation created successfully!'
+    else
+      render :new, notice: 'Oops something went wront.. Please try again!'
+    end
+  end
+
   def edit
     @organisation = Organisation.find(params[:id])
   end
@@ -26,13 +35,11 @@ class OrganisationsController < ApplicationController
     end
   end
 
-  def create
-    @organisation = Organisation.create(org_params)
-    if @organisation.save
-      redirect_to @organisation, notice: 'Organisation created successfully!'
-    else
-      render :new, notice: 'Oops something went wront.. Please try again!'
-    end
+  def destroy
+    @organisation = Organisation.find(params[:id])
+    @organisation.destroy
+
+    redirect_to root_path, notice: 'Organisation successfully deleted!'
   end
 
   private

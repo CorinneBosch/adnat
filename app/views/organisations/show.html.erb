@@ -1,3 +1,8 @@
 <h2><%= @organisation.name %></h2>
 
 <p><%= @organisation.hourly_rate %></p>
+
+<%= link_to "Edit", edit_organisation_path(@organisation) %>
+<%= link_to "Delete", organisation_path(@organisation),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
