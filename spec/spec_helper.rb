@@ -16,7 +16,7 @@
 RSpec.configure do |config|
   config.before(:suite) do
     con = PG.connect :dbname => 'adnat_test'
-    con.exec 'TRUNCATE TABLE organisations RESTART IDENTITY' # find a rails way to do this?
+    con.exec 'TRUNCATE TABLE shifts, organisations RESTART IDENTITY' # find a rails way to do this?
     # Rails.application.load_seed
   end
 end
