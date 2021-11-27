@@ -12,6 +12,20 @@ class OrganisationsController < ApplicationController
   #   @organisation = Organisation.new 
   # end
 
+  def edit
+    @organisation = Organisation.find(params[:id])
+  end
+
+  def update
+    @organisation = Organisation.find(params[:id])
+
+    if @organisation.update(org_params)
+      redirect_to @organisation, notice: 'Organisation updated successfully!'
+    else
+      render :edit, notice: 'Oops something went wront.. Please try again!'
+    end
+  end
+
   def create
     @organisation = Organisation.create(org_params)
     if @organisation.save
