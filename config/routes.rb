@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  # get 'home/index'
   devise_for :users
-  root to: 'home#index'
+
+  root to: 'organisations#index'
   
   resources :organisations do
     resources :shifts
