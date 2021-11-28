@@ -14,7 +14,10 @@
 
 <h2>Create new Organisation</h2>
 
-<%= @user.id %>
+<%= current_user.id %>
+
+<%= current_user.shifts %>
 
 <%= render partial: "form" %> 
 <%# <%= render "form", organisation: @organisation %> 
+

@@ -1,0 +1,5 @@
+<%= @user.name %>
+
+<%= link_to "Delete my Shifts", users_leave_organisation_path,
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>

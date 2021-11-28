@@ -48,10 +48,6 @@ class OrganisationsController < ApplicationController
     redirect_to organisations_path, notice: 'Organisation successfully deleted!'
   end
 
-  # def leave_organisation
-
-  # end
-
   private
 
   def find_user
@@ -62,9 +58,9 @@ class OrganisationsController < ApplicationController
     @user.update(organisation_id: @organisation.id)
   end
 
-  def leave_organisation
-    @user.update(organisation_id: nil)
-  end
+  # def leave_organisation
+  #   @user.update(organisation_id: nil)
+  # end
 
   def org_params
     params.require(:organisation).permit(:name, :hourly_rate)
