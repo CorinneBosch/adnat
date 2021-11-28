@@ -40,7 +40,7 @@ class OrganisationsController < ApplicationController
     @organisation = Organisation.find(params[:id])
     @organisation.destroy
 
-    redirect_to root_path, notice: 'Organisation successfully deleted!'
+    redirect_to organisations_path, notice: 'Organisation successfully deleted!'
   end
 
   private

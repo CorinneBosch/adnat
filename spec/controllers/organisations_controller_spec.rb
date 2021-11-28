@@ -82,7 +82,7 @@ RSpec.describe OrganisationsController, type: :controller do
     end
 
     it "deletes an organisation and redirects to all organisations" do
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(organisations_path)
     end
 
     it "informs user organisation deleted successfully" do
