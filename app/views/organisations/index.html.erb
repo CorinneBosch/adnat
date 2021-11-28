@@ -6,7 +6,10 @@
   <% @organisations.each do |org| %>
     <li>
       <%= org.name %>
-      <%= link_to "join", organisation_path(org) %>
+      <%# <%= link_to "join", organisation_path(org) %>
+      <% org_id = org.id %>
+      <%= link_to "join", users_join_organisation_path(@user, org_id: org_id), method: :post %>
+      <%# # users_join_organisation_path, method: :patch { id: org.id } %>
       <%= link_to "edit", edit_organisation_path(org) %>
     </li>
   <% end %>
@@ -20,4 +23,9 @@
 
 <%= render partial: "form" %> 
 <%# <%= render "form", organisation: @organisation %> 
-
+<%# 
+              link_to "show\nall",
+              url_for({controller: "organisations", action: "show", open: true, id: org.id}),
+              method: :patch,
+              remote: true,
+              class: "show_comments" %>  

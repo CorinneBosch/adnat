@@ -43,7 +43,6 @@ class OrganisationsController < ApplicationController
 
   def destroy
     @organisation = Organisation.find(params[:id])
-    leave_organisation
     @organisation.destroy
     redirect_to organisations_path, notice: 'Organisation successfully deleted!'
   end
@@ -57,10 +56,6 @@ class OrganisationsController < ApplicationController
   def join_organisation
     @user.update(organisation_id: @organisation.id)
   end
-
-  # def leave_organisation
-  #   @user.update(organisation_id: nil)
-  # end
 
   def org_params
     params.require(:organisation).permit(:name, :hourly_rate)

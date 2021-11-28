@@ -6,8 +6,14 @@ class UsersController < ApplicationController
     @user
   end
 
+  def join_organisation
+    @organisation = Organisation.find(params[:org_id])
+    @user.update(organisation_id: @organisation.id)
+    redirect_to (organisations_path + "/#{@organisation.id}")
+  end
+
   def leave_organisation
-    # @user = User.find_by(id: current_user.id)
+    @user = User.find_by(id: current_user.id)
     @user.update(organisation_id: nil)
     @user.shifts.destroy_all
     redirect_to organisations_path, notice: 'All shift deleted!'
