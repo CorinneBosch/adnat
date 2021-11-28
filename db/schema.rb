@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_28_140936) do
+ActiveRecord::Schema.define(version: 2021_11_28_144756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_11_28_140936) do
   end
 
   create_table "shifts", force: :cascade do |t|
+    t.string "employee", null: false
     t.datetime "shift_start", null: false
     t.time "shift_end", null: false
     t.integer "break_length", null: false
@@ -42,8 +43,8 @@ ActiveRecord::Schema.define(version: 2021_11_28_140936) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.bigint "organisation_id", null: false
+    t.string "name", null: false
+    t.bigint "organisation_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["organisation_id"], name: "index_users_on_organisation_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
