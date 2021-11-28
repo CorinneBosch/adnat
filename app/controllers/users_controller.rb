@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!, :except[:index, :show]
   before_action :find_user
 
   def show
     @user
+    is_org_member?
   end
 
   def join_organisation

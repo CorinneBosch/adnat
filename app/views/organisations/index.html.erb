@@ -1,4 +1,9 @@
-<p><%= current_user.name %></p>
+<p>Logged in as <%= current_user.name %></p>
+
+<% if !is_org_member? %>
+  <p>You aren't a member of any organisation yet</p>
+  <p>Join an existing organisation or create a new one</p>
+<% end %>
 
 <h2>Organisations</h2>
 
@@ -17,15 +22,4 @@
 
 <h2>Create new Organisation</h2>
 
-<%= current_user.id %>
-
-<%= current_user.shifts %>
-
 <%= render partial: "form" %> 
-<%# <%= render "form", organisation: @organisation %> 
-<%# 
-              link_to "show\nall",
-              url_for({controller: "organisations", action: "show", open: true, id: org.id}),
-              method: :patch,
-              remote: true,
-              class: "show_comments" %>  

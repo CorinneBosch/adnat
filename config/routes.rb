@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  
-  # devise_for :users, :controllers => { user: 'users/show' }
 
-  root to: 'organisations#index'
+  root to: 'home#index'
 
-  authenticated do
-    root :to => 'organisations#index', as: :authenticated
+  authenticated :users do
+    root :to => 'organisations#index', as: :authenticated_root
 
     get 'users/show'
     get 'users/join_organisation'
@@ -14,11 +12,6 @@ Rails.application.routes.draw do
     patch 'users/join_organisation'
     delete 'users/leave_organisation'
   end
-
-
-
-  # get 'users/show'
-  # delete 'users/leave_organisation'
 
   resources :organisations do
     resources :shifts
