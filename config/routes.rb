@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  authenticated :users do
-    root :to => 'organisations#index', as: :authenticated_root
+  authenticated do
+    root :to => 'organisations#index', as: :authenticated
 
     get 'users/show'
     get 'users/join_organisation'

@@ -14,10 +14,10 @@ class UsersController < ApplicationController
   end
 
   def leave_organisation
-    @user = User.find_by(id: current_user.id)
+    org_name = find_left_organisation
     @user.update(organisation_id: nil)
     @user.shifts.destroy_all
-    redirect_to organisations_path, notice: 'All shift deleted!'
+    redirect_to organisations_path, notice: "Left #{org_name} and deleted shifts!"
   end
 
   private
@@ -25,5 +25,10 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by(id: current_user.id)
     redirect_to(root_url) unless @user == current_user
+  end
+
+  def find_left_organisation
+    org = Organisation.find(@user.organisation_id)
+    org.name
   end
 end

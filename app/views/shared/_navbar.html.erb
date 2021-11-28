@@ -1,7 +1,12 @@
 <nav class='bar-box'>
   <div class="some-collapse-navbar">
     <li class='logo-li'>
-       <%= link_to image_tag('lonely-boy.gif', :class => 'logo'), root_path %>
+      <% if user_signed_in? %>
+        <%# <% user_org_id = current_user.organisation_id %>
+        <%= link_to image_tag('lonely-boy.gif', :class => 'logo'), (organisations_path + "/#{current_user.organisation_id}") %>
+      <% else %>
+        <%= link_to image_tag('lonely-boy.gif', :class => 'logo'), root_path %>
+      <% end %>
     </li>
     <% if user_signed_in? %>
       <li class="li-box">

@@ -1,10 +1,20 @@
 <h2><%= @organisation.name %></h2>
 
-<%= link_to "View Shifts", organisation_shifts_path(@organisation) %> |
-<%= link_to "Edit", edit_organisation_path(@organisation) %> |
-<%= link_to "Leave", users_leave_organisation_path,
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+<%# <%= render partial: "shifts/index" %>
+
+<div id='view-shifts'>
+  <%= link_to "View Shifts", organisation_shifts_path(@organisation), remote: true %>
+</div>
+
+<div id='edit-org'>
+  <%= link_to "Edit", edit_organisation_path(@organisation) %> 
+</div>
+
+<div id='Leave Organisation'>
+  <%= link_to "Leave", users_leave_organisation_path,
+                       method: :delete,
+                       data: { confirm: "Are you sure?" } %>
+</div>
 <%# <%= link_to "Leave", organisation_path(@organisation),
             method: :delete,
             data: { confirm: "Are you sure?" } %> 
