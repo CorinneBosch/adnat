@@ -3,14 +3,11 @@ class ShiftsController < ApplicationController
   before_action :find_organisation
   before_action :find_shift, only: [:destroy, :edit]
 
-
   def index
-    # @organisation = Organisation.find(params[:organisation_id])
     @org_shifts = @organisation.shifts.all.order(created_at: :desc)
   end
 
-  def create 
-    # @organisation = Organisation.find(params[:organisation_id])
+  def create
     @shift = @organisation.shifts.create(shift_params)
     if @shift.save
       redirect_to organisation_shifts_path(@organisation), notice: 'Shift added!'
