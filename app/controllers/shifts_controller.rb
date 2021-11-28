@@ -1,5 +1,6 @@
 class ShiftsController < ApplicationController
-  before_action :join_params, only: [:create, :edit]
+  before_action :join_start_params, only: [:create]
+  before_action :join_end_params, only: [:create]
   before_action :find_organisation
   before_action :find_shift, only: [:destroy, :edit]
 
@@ -14,11 +15,6 @@ class ShiftsController < ApplicationController
     else
       render :index, notice: 'Oops something went wront.. Please try again!'
     end
-  end
-
-  def edit
-    # @organisation = Organisation.find(params[:organisation_id])
-    # @shift = @organisation.shifts.find(params[:id])
   end
 
   def update
@@ -44,18 +40,31 @@ class ShiftsController < ApplicationController
     params.require(:shift).permit(:employee, :shift_start, :shift_end, :break_length)
   end
 
-  def join_params
+  def join_start_params
     if params[:shift].blank?
       return
     end
     shift_start_date = params[:shift].delete(:shift_start_date)
     shift_start_time = params[:shift].delete(:shift_start_time)
-
+    shift_end_time = params[:shift].delete(:shift_end_time)
     # if shift_start_date.blank? || shift_start_time.blank?
     #   # TBC
     # else
     params[:shift][:shift_start] = Time.parse("#{shift_start_date} #{shift_start_time}")
+    params[:shift][:shift_end] = Time.parse("#{shift_start_date} #{shift_end_time}")
     # end
+  end
+
+  def join_end_params
+    if params[:shift].blank?
+      return
+    end
+    shift_start_date = params[:shift].delete(:shift_start_date)
+    shift_end_time = params[:shift].delete(:shift_end_time)
+
+    # finish = shift_end_time.strftime('%H:%M')
+    # params[:shift][:shift_end] = Time.parse("#{shift_start_date} #{shift_end_time.strftime('%H:%M')}")
+
   end
 
   def find_organisation
