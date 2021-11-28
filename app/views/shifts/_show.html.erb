@@ -11,11 +11,13 @@
     <td><%= shift.break_length %></td>
     <td><%= hours_worked %></td>
     <td>£ <%= '%.2f' % round_to_quarter(@organisation.hourly_rate * hours_worked) %></td>
-    <td>
-      <%= link_to "Edit", edit_organisation_shift_path(@organisation, shift) %>
-      <%= link_to "Delete", [@organisation, shift],
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-    </td>
+    <% if current_user.id == shift.user_id %>
+      <td>
+        <%= link_to "Edit", edit_organisation_shift_path(@organisation, shift) %>
+        <%= link_to "Delete", [@organisation, shift],
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+      </td>
+    <% end %>
   </tr>
 <% end %>

@@ -34,7 +34,7 @@ class ShiftsController < ApplicationController
 
   private
   def shift_params
-    params.require(:shift).permit(:employee, :shift_start, :shift_end, :break_length)
+    params.require(:shift).permit(:employee, :shift_start, :shift_end, :break_length, :user_id)
   end
 
   def join_start_params
