@@ -18,7 +18,6 @@ class ShiftsController < ApplicationController
   end
 
   def update
-    # @organisation = Organisation.find(params[:organisation_id])
     @shift = @organisation.shifts.find(params[:id])
 
     if @shift.update(shift_params)
@@ -29,8 +28,6 @@ class ShiftsController < ApplicationController
   end
 
   def destroy
-    # @organisation = Organisation.find(params[:organisation_id])
-    # @shift = @organisation.shifts.find(params[:id])
     @shift.destroy
     redirect_to organisation_shifts_path(@organisation), notice: 'Shift deleted!'
   end

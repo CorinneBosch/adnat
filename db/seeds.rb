@@ -27,7 +27,7 @@ organisations.each { |org| Organisation.create(org) }
 
 shifts = [
   {
-    employee: 'Rubeus Hagrid',
+    employee_id: 'Rubeus Hagrid',
     shift_start: Time.new(2021, 11, 26, 11, 15),
     shift_end: Time.new(2021, 11, 26, 22, 20).strftime('%H:%M'),
     break_length: 45,

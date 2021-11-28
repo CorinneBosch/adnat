@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_28_113027) do
+ActiveRecord::Schema.define(version: 2021_11_28_133636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2021_11_28_113027) do
   end
 
   create_table "shifts", force: :cascade do |t|
-    t.string "employee"
     t.datetime "shift_start"
     t.time "shift_end"
     t.integer "break_length"
