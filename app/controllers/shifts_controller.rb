@@ -1,6 +1,6 @@
 class ShiftsController < ApplicationController
+  before_action :authenticate_user!
   before_action :join_start_params, only: [:create]
-  before_action :join_end_params, only: [:create]
   before_action :find_organisation
   before_action :find_shift, only: [:destroy, :edit]
 

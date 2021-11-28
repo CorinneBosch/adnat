@@ -1,4 +1,6 @@
 class OrganisationsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @organisations = Organisation.all.order(created_at: :desc)
     @organisation = Organisation.new
