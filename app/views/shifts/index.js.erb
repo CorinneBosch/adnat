@@ -1,1 +1,1 @@
-$("#view-shifts").parent().html("<% j render 'index', organisation: @organisation %>")
+$('#view-shifts').append('<%= j render :partial => 'shifts/index', :formats => :html %>');
