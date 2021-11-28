@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/join_organisation'
+  get 'users/leave_organisation'
   # get 'home/index'
   devise_for :users
   
@@ -7,6 +9,10 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+
+  # resources :organisations do
+  #   get 'users#join_organisation', :on => :user
+  # end
 
   resources :organisations do
     resources :shifts

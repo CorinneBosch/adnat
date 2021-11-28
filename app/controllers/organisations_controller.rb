@@ -1,5 +1,6 @@
 class OrganisationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_user
   
   def index
     @organisations = Organisation.all.order(created_at: :desc)
@@ -17,7 +18,9 @@ class OrganisationsController < ApplicationController
 
   def create
     @organisation = Organisation.create(org_params)
+
     if @organisation.save
+      join_organisation
       redirect_to @organisation, notice: 'Organisation created successfully!'
     else
       render :new, notice: 'Oops something went wront.. Please try again!'
@@ -40,12 +43,28 @@ class OrganisationsController < ApplicationController
 
   def destroy
     @organisation = Organisation.find(params[:id])
+    leave_organisation
     @organisation.destroy
-
     redirect_to organisations_path, notice: 'Organisation successfully deleted!'
   end
 
+  # def leave_organisation
+
+  # end
+
   private
+
+  def find_user
+    @user = User.find_by(id: current_user.id)
+  end
+
+  def join_organisation
+    @user.update(organisation_id: @organisation.id)
+  end
+
+  def leave_organisation
+    @user.update(organisation_id: nil)
+  end
 
   def org_params
     params.require(:organisation).permit(:name, :hourly_rate)
