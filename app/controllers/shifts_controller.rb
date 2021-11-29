@@ -12,7 +12,6 @@ class ShiftsController < ApplicationController
 
   def create
     @shift = @organisation.shifts.create(shift_params)
-    # @shift.save
     if @shift.save
       # redirect_to organisations_path(@organisation), notice: 'Shift added!'
       respond_with @organisation
@@ -54,18 +53,6 @@ class ShiftsController < ApplicationController
     params[:shift][:shift_start] = Time.parse("#{shift_start_date} #{shift_start_time}")
     params[:shift][:shift_end] = Time.parse("#{shift_start_date} #{shift_end_time}")
     # end
-  end
-
-  def join_end_params
-    if params[:shift].blank?
-      return
-    end
-    shift_start_date = params[:shift].delete(:shift_start_date)
-    shift_end_time = params[:shift].delete(:shift_end_time)
-
-    # finish = shift_end_time.strftime('%H:%M')
-    # params[:shift][:shift_end] = Time.parse("#{shift_start_date} #{shift_end_time.strftime('%H:%M')}")
-
   end
 
   def find_organisation
