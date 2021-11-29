@@ -2,25 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-// table,
-// tr,
-// th,
-// td {
-//   border: 1px solid black;
-// }
-
-// th,
-// td {
-//   padding: 5px;
-// }
-
-// table {
-//   border-collapse: collapse;
-// }
-// th {
-//   text-align: left;
-// }
-
 body {
   background-image: image-url('space1');
   color: #fff;
@@ -30,6 +11,7 @@ body {
 
 h1 {
   // font-family: 'Orbitron', sans-serif;
+  text-align: center;
   font-weight: 400;
   font-size: 40px;
   height: 2 vh;
@@ -43,29 +25,31 @@ h5 {
   // font-family: 'Orbitron', sans-serif;
   font-style: normal;
   font-weight: 200;
-  height: 2vh;
+  // height: 2vh;
 }
 
+#center,
 .center {
   text-align: center;
   margin: 1% auto;
 }
 
 .bar-box {
-  padding: 3px;
+  // padding: 3px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #15a793;
+  background-color: rgba(0, 51, 51, 0.9);
+
+  // background-color: #fadbdb;
   width: 97%;
   margin-left: auto;
   margin-right: auto;
   list-style-type: none;
-  height: 85px;
+  height: 80px;
   position: relative;
 }
 
 .li-box a {
-  /* font-family: 'Retrospective'; */
   float: left;
   display: block;
   text-align: center;
@@ -75,15 +59,12 @@ h5 {
   position: relative;
 }
 
-.logo-li:hover,
-.li-box a:hover {
-  background-color: #e85d9a;
-  box-shadow: 0px 15px 20px #2596be;
-  color: #fff;
-  opacity: 0.6;
-  transform: translateY(-7px);
+#vp {
+  text-align: right;
+  margin-top: 0px;
+  margin-right: 2px;
+  height: 0vh;
 }
-
 .logo-li {
   /* font-family: 'Retrospective'; */
   float: left;
@@ -98,16 +79,17 @@ h5 {
 }
 
 .logo {
-  width: 45px;
-  border-radius: 4px;
+  width: 60px;
+  margin: 10% auto;
+  border-radius: 50px;
   padding-top: 0px;
   left: 5px;
 }
 
 .box {
   width: 75%;
-  margin: 0% auto;
   height: 100%;
+  margin-top: 0px;
   border-radius: 40px;
   overflow: auto;
 }
@@ -119,7 +101,7 @@ h5 {
   margin-top: 10%;
   margin-bottom: 10%;
   width: 70%;
-  background-color: rgba(0, 51, 51, 0.7);
+  background-color: rgba(0, 51, 51, 0.6);
 }
 
 #WFM {
@@ -165,6 +147,10 @@ h5 {
   outline: #ff471a;
 }
 
+.sml-text form {
+  width: 20%;
+}
+
 form input[type='text'],
 form input[type='email'],
 form input[type='password'] {
@@ -180,27 +166,78 @@ form input[type='password'] {
   border: 2px solid #036363;
 }
 
-// .hidden-add-org,
+.sml-text form {
+  width: 20px;
+}
+
 .sml-button {
   margin-left: auto;
   margin-right: auto;
   display: block;
   border-radius: 8px;
+  color: #5536cc;
   height: 6vh;
   font-family: 'Orbitron', sans-serif;
   background-color: #fadbdb;
-  // color: #e84b2c;
+  border: 2px solid hsl(180, 94%, 20%);
+}
+
+.sml-leave {
+  border-radius: 8px;
+  margin-right: 40%;
+  position: absolute;
+  margin-top: 0px;
+  color: #5536cc;
+  height: 6vh;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #fadbdb;
+  border: 2px solid hsl(180, 94%, 20%);
+}
+
+.sml-link {
+  // margin-left: auto;
+  // margin-right: auto;
+  // display: block;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  border-radius: 8px;
+  height: 6vh;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #fadbdb;
   border: 2px solid hsl(180, 94%, 20%);
 }
 
 .sml-join {
-  margin: 1% auto;
+  border-radius: 8px;
+  margin-right: 40%;
+  position: absolute;
+  margin-top: 0px;
+  right: -2%;
+  // margin: 1% auto;
+  border-radius: 8px;
+  color: #5536cc;
+  height: 6vh;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #fadbdb;
+  border: 2px solid #036363;
+}
+
+.sml-edit {
+  border-radius: 8px;
+  margin-left: 40%;
+  position: absolute;
+  color: #5536cc;
+  // height: 70px;
+  // left: 12px;
+  left: 3%;
+  // margin: 1% auto;
   border-radius: 8px;
   height: 6vh;
   font-family: 'Orbitron', sans-serif;
   background-color: #fadbdb;
   border: 2px solid #036363;
-  // border-right: none;
 }
 
 .field {
@@ -251,8 +288,131 @@ form input[type='password'] {
   text-align: center;
   background-color: #fadbdb;
   box-shadow: 0px 10px 20px #5536cc;
-  //  #e85d9a;
   border: 2px solid #036363;
-  // #15a793;
   margin-top: 7%;
 }
+
+.logo-li:hover,
+.li-box a:hover,
+input[type='submit']:hover,
+button:hover,
+.sml-button:hover,
+.sml-link:hover,
+.sml-edit:hover,
+.sml-join:hover,
+select:hover {
+  background-color: #5536cc;
+  box-shadow: 0px 15px 20px #15a793;
+  color: #fff;
+  opacity: 0.6;
+  transform: translateY(-7px);
+}
+
+a:link,
+a:visited {
+  // color: blue;
+  color: #5536cc;
+}
+
+.show-org {
+  border-radius: 20px;
+  padding: 0.5em;
+  margin: 2% auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 80%;
+  bottom: 10%;
+  outline: #ff471a;
+  border: 2px solid #fadbdb;
+  background-color: rgba(0, 51, 51, 0.7);
+  // background-size: 50%;
+}
+
+.field-shifts {
+  margin: 50% auto;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  border: 2px solid #fadbdb;
+  border-radius: 12px;
+  overflow: auto;
+  // padding: 1em;
+  // display: inline-block;
+  // background-image: image-url('wallpaper-cards.png');
+
+  height: 150px;
+
+  // background-size: 50%;
+}
+
+.details {
+  border-radius: 8px;
+  padding: 0.5em;
+  margin: 2% auto;
+  display: absolute;
+  // background-color: #fadbdb;
+  // margin-top: 15%;
+  // outline: #ff471a;
+  // border: 2px solid #2596be;
+  height: 150px;
+}
+
+#details-box {
+  text-align: center;
+  width: 40%;
+  margin: 0 2%;
+  padding: 1em;
+  float: left;
+}
+
+.add-div {
+  border-radius: 30px;
+  padding: 1em;
+  background-color: rgba(0, 51, 51, 0.5);
+  margin-bottom: 15%;
+}
+
+#bio-box {
+  text-align: center;
+  width: 40%;
+  // margin-bottom: 200px;
+  margin: 0 2%;
+  // height: 120%;
+  padding: 1em;
+  // border-radius: 30px;
+  float: right;
+  // overflow: auto;
+}
+
+.feed-box {
+  border-radius: 12px;
+  padding: 0.5em;
+  bottom: 0%;
+}
+
+.post-K-profile {
+  border-radius: 5px;
+  margin-left: 40%;
+  position: absolute;
+  height: 70px;
+  left: 8px;
+}
+
+table,
+tr,
+th,
+td {
+  border: 1px solid black;
+}
+
+th,
+td {
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+}
+//

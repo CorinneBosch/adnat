@@ -1,22 +1,36 @@
-<h2><%= @organisation.name %></h2>
+<section class='show-org'> 
+  <div class='fieldd-shifts'>
+    <h2 class='center'><%= @organisation.name %></h2>
+    <br>
+    <div id='view-shifts'>
+      <%= button_to "View Shifts", organisation_shifts_path(@organisation), 
+                                   :class => 'sml-button', method: :get, remote: true %>
+    </div>
+    <br>
+  </div>
+  
+  <section class='details'>
+    <section id='details-box'>
+      <div id="add-shift" class='add-div'>
+        <%= link_to "Add Shift", new_organisation_shift_path(@organisation), :id => 'center', :class => 'sml-link', remote: true %>
+      </div>
+    </section>
+    <section id='bio-box'>
+      <div id="edit-org" class='add-div'>
+        <%= link_to "Edit", edit_organisation_path(@organisation), :class => 'sml-link', method: :get, remote: true  %>
+      </div>
+    </section>
+  </section>
 
-<div id="add-shift">
-  <%= link_to "Add Shift", new_organisation_shift_path(@organisation), remote: true %>
-</div>
+  <section class='feed-box'>
 
-<div id='view-shifts'>
-  <%= link_to "View Shifts", organisation_shifts_path(@organisation), remote: true %>
-</div>
+    <div id='leave-organisation'>
+      <%= button_to "Leave", users_leave_organisation_path,
+                         method: :delete,
+                         :class => 'sml-leave',
+                         remote: true,
+                         data: { confirm: "Are you sure?" } %>
+    </div>
+  </section>
 
-<div id="edit-org" >
-  <%= link_to "Edit", edit_organisation_path(@organisation), remote: true %> 
-</div>
-
-<div id='leave-organisation'>
-  <%= link_to "Leave", users_leave_organisation_path,
-                       method: :delete,
-                       remote: true,
-                       data: { confirm: "Are you sure?" } %>
-</div>
-
-
+</section>

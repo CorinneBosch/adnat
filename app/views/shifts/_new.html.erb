@@ -1,15 +1,14 @@
 <div id='add-shift'>
   <%= form_with model: [ @organisation, @organisation.shifts.build ] do |form| %>
-  <tr>
-    <td><%= current_user.name %></td>
-    <td><%= form.date_field :shift_start_date, required: true %></td>
-    <td><%= form.time_field :shift_start_time, required: true %></td>
-    <td><%= form.time_field :shift_end_time, required: true %></td>
-    <td><%= form.text_field :break_length, required: true %></td>
+    <a>New Shift for <%= current_user.name %></a><br><br>
+    <a>shift date: <%= form.date_field :shift_start_date, :class => 'sml-button', required: true %></a>
+    <a>start time: <%= form.time_field :shift_start_time, :class => 'sml-button', required: true %></a>
+    <a>finish time: <%= form.time_field :shift_end_time, :class => 'sml-button', required: true %></a>
+    <a>break length:</a><br> <%= form.text_field :break_length, :class => 'sml-text', :style => 'width:50px;height:5vh', required: true %></a><br>
     <%= form.hidden_field :employee, value: current_user.name %>
     <%= form.hidden_field :user_id, value: current_user.id %>
-    <td><%= form.submit %></td>
-  </tr>
+    <br>
+    <%= form.submit 'Create', :class => 'sml-button' %>
   <% end %>
 </div>
 
