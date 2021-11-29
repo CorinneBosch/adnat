@@ -1,12 +1,20 @@
 require 'rails_helper'
-require 'helper_methods'
+require_relative'../support/helper_methods'
 
 RSpec.describe User, type: :model do
   include ActionDispatch::TestProcess::FixtureFile
 
-  it "can create new user" do
-    user = add_new_user
-    expect(user).to be_valid
+  before :each do
+    @user1 = create(:user)
+  end
+
+  it 'can create new user' do
+    expect(@user1).to be_valid
+  end
+
+  it 'has unique email' do
+    user2 = build(:user, email: "butterbeerh@example.com")
+    expect(user2).to_not be_valid
   end
 
   it "stores create user in table" do
