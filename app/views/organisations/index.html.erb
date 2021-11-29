@@ -1,30 +1,34 @@
-<p>Logged in as <%= current_user.name %></p>
-<h2>Organisations</h2>
-
-<% if !is_org_member? %>
-  <p>You aren't a member of any organisation yet</p>
-  <p>Join an existing organisation or create a new one</p>
-<% end %>
-
-<ul>
-  <% @organisations.each do |org| %>
-    <li>
-      <%= org.name %>
- 
-      <% org_id = org.id %>
-      <%= button_to "join", users_join_organisation_path(@user, org_id: org_id),
-                                   method: :post,
-                                   remote: true %>
-
-      <div id=<%= "edit-org-#{org.id}" %> >
-        <%= link_to "Edit", edit_organisation_path(@organisation, id: org_id), remote: true  %>
-      </div>
-    </li>
+<p class='center'>Logged in as <%= current_user.name %></p>
+<section class='org-index'>
+  <h2>Organisations</h2>
+  <br>
+  <% if !is_org_member? %>
+    <p>You aren't a member of any organisation yet</p>
+    <p>Join an existing organisation or create a new one</p>
   <% end %>
-</ul>
+  <%= render partial: "organisations/helper-functions" %>
+  <button class='sml-button' onclick="displayAddOrg()">Create new Organisation</button>
+  <div id="hidden-add-org" style='display:none'>
+      <%= render partial: "new" %> 
+  </div>
+  <ul>
+    <% @organisations.each do |org| %>
+      <div class='each-org'>
 
-<h2>Create new Organisation</h2>
+        <%= org.name %>
 
-<%= current_user.id %>
+        <br><% org_id = org.id %><br>
+        <div id='flex'>
+        <%= button_to "Join", users_join_organisation_path(@user, org_id: org_id),
+                              method: :post, :class => 'sml-join', remote: true %>
 
-<%= render partial: "form" %> 
+        <div id=<%= "edit-org-#{org.id}" %> >
+          <%= button_to "Edit", edit_organisation_path(@organisation, id: org_id), 
+                                method: :get, :class => 'sml-join', remote: true  %>
+        </div>
+      </div>
+
+      </div>
+    <% end %>
+  </ul>
+</section>

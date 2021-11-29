@@ -1,0 +1,258 @@
+// Place all the styles related to the Auctions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// table,
+// tr,
+// th,
+// td {
+//   border: 1px solid black;
+// }
+
+// th,
+// td {
+//   padding: 5px;
+// }
+
+// table {
+//   border-collapse: collapse;
+// }
+// th {
+//   text-align: left;
+// }
+
+body {
+  background-image: image-url('space1');
+  color: #fff;
+  // font-family: 'Retrospective';
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+  // font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  height: 2 vh;
+}
+
+a,
+h2,
+h3,
+h4,
+h5 {
+  // font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  height: 2vh;
+}
+
+.center {
+  text-align: center;
+  margin: 1% auto;
+}
+
+.bar-box {
+  padding: 3px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #15a793;
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-type: none;
+  height: 85px;
+  position: relative;
+}
+
+.li-box a {
+  /* font-family: 'Retrospective'; */
+  float: left;
+  display: block;
+  text-align: center;
+  border-radius: 8px;
+  padding: 23px 30px 50px;
+  text-decoration: none;
+  position: relative;
+}
+
+.logo-li:hover,
+.li-box a:hover {
+  background-color: #e85d9a;
+  box-shadow: 0px 15px 20px #2596be;
+  color: #fff;
+  opacity: 0.6;
+  transform: translateY(-7px);
+}
+
+.logo-li {
+  /* font-family: 'Retrospective'; */
+  float: left;
+  display: block;
+  text-align: center;
+  border-radius: 8px;
+  /* // border: 2px solid #ff471a; */
+  padding: 5px 5px 5px;
+  /* // padding: 0.5em; */
+  text-decoration: none;
+  position: relative;
+}
+
+.logo {
+  width: 45px;
+  border-radius: 4px;
+  padding-top: 0px;
+  left: 5px;
+}
+
+.box {
+  width: 75%;
+  margin: 0% auto;
+  height: 100%;
+  border-radius: 40px;
+  overflow: auto;
+}
+
+.index-box {
+  border-radius: 20px;
+  padding: 2em;
+  margin: 2% auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 70%;
+  background-color: rgba(0, 51, 51, 0.7);
+}
+
+#WFM {
+  margin: 2% auto;
+  // color: #3e2181;
+  color: #5536cc;
+  text-align: center;
+}
+
+#grow {
+  margin: 2% auto;
+  margin-bottom: 10%;
+  color: #fff;
+  text-align: center;
+}
+
+#no-1 {
+  margin: 2% auto;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box {
+  border-radius: 20px;
+  padding: 0.5em;
+  margin: 2% auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 40%;
+  bottom: 10%;
+  outline: #ff471a;
+  border: 2px solid #fadbdb;
+  background-color: rgba(0, 51, 51, 0.7);
+  // background-size: 50%;
+}
+
+.edit-box {
+  border-radius: 20px;
+  padding: 0.5em;
+  margin: 2% auto;
+  width: 40%;
+  bottom: 10%;
+  outline: #ff471a;
+}
+
+form input[type='text'],
+form input[type='email'],
+form input[type='password'] {
+  border-radius: 8px;
+  width: 95%;
+  padding: 0.3em;
+  margin: 1% auto;
+  position: relative;
+  font-family: 'Orbitron', sans-serif;
+  color: black;
+  background-color: #fadbdb;
+  outline: #ff471a;
+  border: 2px solid #036363;
+}
+
+// .hidden-add-org,
+.sml-button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 8px;
+  height: 6vh;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #fadbdb;
+  // color: #e84b2c;
+  border: 2px solid hsl(180, 94%, 20%);
+}
+
+.sml-join {
+  margin: 1% auto;
+  border-radius: 8px;
+  height: 6vh;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #fadbdb;
+  border: 2px solid #036363;
+  // border-right: none;
+}
+
+.field {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.org-index {
+  text-align: center;
+  background-image: image-url('space7');
+  background-size: 100%;
+  border-radius: 20px;
+  padding: 0.5em;
+  margin: 2% auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 60%;
+  bottom: 10%;
+  outline: #ff471a;
+  border: 2px solid #fadbdb;
+  background-color: rgba(0, 51, 51, 0.7);
+  // background-size: 50%;
+}
+
+.each-org {
+  border-radius: 20px;
+  padding: 0.5em;
+  margin: 2% auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 60%;
+  bottom: 10%;
+  outline: #ff471a;
+  border: 2px solid #fadbdb;
+  background-color: rgba(0, 51, 51, 0.7);
+}
+
+#notice {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: relative;
+  padding: 20px;
+  width: 60%;
+  color: black;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #fadbdb;
+  box-shadow: 0px 10px 20px #5536cc;
+  //  #e85d9a;
+  border: 2px solid #036363;
+  // #15a793;
+  margin-top: 7%;
+}

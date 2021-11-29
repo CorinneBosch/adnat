@@ -1,0 +1,24 @@
+<div class='edit-box'>
+  <%= form_with(model: @organisation, remote: true, ) do |form| %>
+
+    <% if @organisation.errors.any? %>
+      <% @organisation.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+    <% end %>
+
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, :class => 'center', required: true  %>
+    </div>
+
+    <div>
+      <%= form.label 'Hourly rate £' %><br>
+      <%= form.text_field :hourly_rate, :class => 'center', required: true  %>
+    </div>
+    <div>
+      <%= form.submit 'Join', :class => 'sml-button' %>
+    </div>
+  <% end %>
+</div>
+

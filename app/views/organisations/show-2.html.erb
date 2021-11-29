@@ -7,16 +7,11 @@
 <button onclick="displayEditShifts()">Edit <%= @organisation.name %></button>
 
 <div id="hidden-add-field" style='display:none'>
-  <%# <%= link_to "Add Shift", new_organisation_shift_path(@organisation), remote: true %> 
   <%= render partial: "shifts/new" %>
 </div>
 
-<%# <div id='view-shifts'>
-  <%= link_to "View Shifts JQuery", organisation_shifts_path(@organisation), remote: true %>
-
 <div id="hidden-edit-field" style='display:none'>
   <%= render partial: "organisations/edit" %>
-  <%# <%= link_to "Edit", edit_organisation_path(@organisation), remote: true %>  %>
 </div>
 
 <div id="hidden-shifts-field" style='display:none'>

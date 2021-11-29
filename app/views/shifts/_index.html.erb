@@ -1,22 +1,28 @@
-<div id='shifts-table'>
-  <h3>Shifts</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Employee Name</td>
-        <th>Shift date</td>
-        <th>Start time</td>
-        <th>Finish time</td>
-        <th>Break length (min)</td>
-        <th>Hours worked</td>
-        <th>Shift cost</td>
-        <%# <th>Update</td %>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: "shifts/show" %>
-      <%# <%= render partial: "shifts/new" %>
-    </tbody>
-  </table>
-</div>
+<% if @organisation.shifts.empty? %>
 
+  <p><%= @organisation.name %> has no shifts yet! Add a new one</p>
+
+<% else %>
+
+  <div id='shifts-table'>
+    <h3>Shifts</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Employee Name</td>
+          <th>Shift date</td>
+          <th>Start time</td>
+          <th>Finish time</td>
+          <th>Break length (min)</td>
+          <th>Hours worked</td>
+          <th>Shift cost</td>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "shifts/show" %>
+        <%# <%= render partial: "shifts/new" %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>
