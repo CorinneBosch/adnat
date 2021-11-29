@@ -1,6 +1,6 @@
 <% @org_shifts.each do |shift| %>
   <tr>
-    <td><%= shift.employee %></td>
+    <td><%= shift.employee %></td> 
     <td><%= shift.shift_start.strftime('%m/%d/%Y')%></td>
     <td><%= shift.shift_start.strftime('%H:%M%P')%></td>
     <td><%= shift.shift_end.strftime('%H:%M%P') %></td>
@@ -21,3 +21,4 @@
     <% end %>
   </tr>
 <% end %>
+

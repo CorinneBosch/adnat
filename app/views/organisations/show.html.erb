@@ -2,13 +2,9 @@
 
 <%# <%= render partial: "shifts/index" %>
 
-<p>test</p>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("p").text("success! !!");
-  });
-</script>
-
+<div id='add-shifts'>
+  <%= link_to "Add Shift", new_organisation_shift_path(@organisation), remote: true %>
+</div>
 
 <div id='view-shifts'>
   <%= link_to "View Shifts", organisation_shifts_path(@organisation), remote: true %>
@@ -21,9 +17,10 @@
 <div id='Leave Organisation'>
   <%= link_to "Leave", users_leave_organisation_path,
                        method: :delete,
+                       remote: true,
                        data: { confirm: "Are you sure?" } %>
 </div>
-<%# <%= link_to "Leave", organisation_path(@organisation),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %> 
-<%# </script> %>
+
+    <%# organisation_shifts GET     /organisations/:organisation_id/shifts(.:format)          shifts#index %>
+                         <%# POST   /organisations/:organisation_id/shifts(.:format)          shifts#create %>
+  <%# new_organisation_shift GET    /organisations/:organisation_id/shifts/new(.:format)      shifts#new %>

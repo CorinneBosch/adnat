@@ -26,7 +26,6 @@ class OrganisationsController < ApplicationController
 
   def edit
     @organisation = Organisation.find(params[:id])
-    # respond_to { |format| format.js }
   end
 
   def update

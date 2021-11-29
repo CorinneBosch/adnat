@@ -1,7 +1,5 @@
 <h2>Edit <%= @shift.employee %>'s shift</h2>
 
-<%= link_to "Back", organisation_shifts_path(@organisation) %>
-
 <%= form_with model: [ @organisation, @shift ] do |form| %>
   <tr>
     <td><%= current_user.name %></td>
