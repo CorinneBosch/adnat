@@ -1,5 +1,4 @@
 <p>Logged in as <%= current_user.name %></p>
-
 <h2>Organisations</h2>
 
 <% if !is_org_member? %>
@@ -11,13 +10,15 @@
   <% @organisations.each do |org| %>
     <li>
       <%= org.name %>
-      <%# <%= link_to "join", organisation_path(org) %>
+ 
       <% org_id = org.id %>
-      <%= link_to "join", users_join_organisation_path(@user, org_id: org_id),
+      <%= button_to "join", users_join_organisation_path(@user, org_id: org_id),
                                    method: :post,
                                    remote: true %>
-      <%# # users_join_organisation_path, method: :patch { id: org.id } %>
-      <%= link_to "edit", edit_organisation_path(org) %>
+
+      <div id=<%= "edit-org-#{org.id}" %> >
+        <%= link_to "Edit", edit_organisation_path(@organisation, id: org_id), remote: true  %>
+      </div>
     </li>
   <% end %>
 </ul>

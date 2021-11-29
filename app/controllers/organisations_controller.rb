@@ -30,9 +30,8 @@ class OrganisationsController < ApplicationController
 
   def update
     @organisation = Organisation.find(params[:id])
-
     if @organisation.update(org_params)
-      redirect_to @organisation, notice: 'Organisation updated successfully!'
+      redirect_to @organisation, notice: "#{@organisation.name} updated successfully!"
     else
       render :edit, notice: 'Oops something went wront.. Please try again!'
     end

@@ -1,8 +1,6 @@
 <h2><%= @organisation.name %></h2>
 
-<%# <%= render partial: "shifts/index" %>
-
-<div id='add-shifts'>
+<div id="add-shift">
   <%= link_to "Add Shift", new_organisation_shift_path(@organisation), remote: true %>
 </div>
 
@@ -10,17 +8,15 @@
   <%= link_to "View Shifts", organisation_shifts_path(@organisation), remote: true %>
 </div>
 
-<div id='edit-org'>
+<div id="edit-org" >
   <%= link_to "Edit", edit_organisation_path(@organisation), remote: true %> 
 </div>
 
-<div id='Leave Organisation'>
+<div id='leave-organisation'>
   <%= link_to "Leave", users_leave_organisation_path,
                        method: :delete,
                        remote: true,
                        data: { confirm: "Are you sure?" } %>
 </div>
 
-    <%# organisation_shifts GET     /organisations/:organisation_id/shifts(.:format)          shifts#index %>
-                         <%# POST   /organisations/:organisation_id/shifts(.:format)          shifts#create %>
-  <%# new_organisation_shift GET    /organisations/:organisation_id/shifts/new(.:format)      shifts#new %>
+

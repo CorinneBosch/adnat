@@ -1,1 +1,3 @@
-$('#edit-org').append('<%= j render :partial => 'organisations/edit', :formats => :html %>');
+$('#edit-org a').parent().html('<%= j render :partial => 'organisations/edit', organisation: @organisation, :formats => :html %>');
+$('#edit-org-<%=params[:id]%>').parent().html('<%= j render :partial => 'organisations/edit', :formats => :html %>');
+

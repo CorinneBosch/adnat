@@ -1,6 +1,6 @@
 class Organisation < ApplicationRecord
-  has_many :shifts
-  has_many :users
+  has_many :shifts, dependent: :destroy
+  has_many :users, dependent: :nullify
 
   validates_uniqueness_of :name
   validates :name, presence: true, length: { maximum: 30,

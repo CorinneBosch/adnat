@@ -1,4 +1,4 @@
-<%= form_with model: @organisation do |form| %>
+<%= form_with(model: @organisation, remote: true, ) do |form| %>
 
   <% if @organisation.errors.any? %>
     <% @organisation.errors.full_messages.each do |msg| %>

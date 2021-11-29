@@ -4,14 +4,18 @@ class ShiftsController < ApplicationController
   before_action :find_organisation
   before_action :find_shift, only: [:destroy, :edit]
 
+  respond_to :html, :xml, :json
+
   def index
     @org_shifts = @organisation.shifts.all.order(created_at: :desc)
   end
 
   def create
     @shift = @organisation.shifts.create(shift_params)
+    # @shift.save
     if @shift.save
-      redirect_to organisations_path(@organisation), notice: 'Shift added!'
+      # redirect_to organisations_path(@organisation), notice: 'Shift added!'
+      respond_with @organisation
     else
       render :index, notice: 'Oops something went wront.. Please try again!'
     end

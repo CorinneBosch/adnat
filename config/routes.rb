@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     post 'users/join_organisation'
     patch 'users/join_organisation'
     delete 'users/leave_organisation'
+
+    get 'update' => 'organisations#update', as: 'update'
   end
 
   resources :organisations do

@@ -1,4 +1,5 @@
-<%= form_with model: [ @organisation, @organisation.shifts.build ] do |form| %>
+<div id='add-shift'>
+  <%= form_with model: [ @organisation, @organisation.shifts.build ] do |form| %>
   <tr>
     <td><%= current_user.name %></td>
     <td><%= form.date_field :shift_start_date, required: true %></td>
@@ -9,6 +10,6 @@
     <%= form.hidden_field :user_id, value: current_user.id %>
     <td><%= form.submit %></td>
   </tr>
-<% end %>
-
+  <% end %>
+</div>
 
