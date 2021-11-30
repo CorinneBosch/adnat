@@ -7,7 +7,7 @@ FactoryBot.define do
   end
 
   factory :organisation do
-    name { "Treehouse" }
+    name { "Hogwarts" }
     hourly_rate { 18.00 }
   end
 

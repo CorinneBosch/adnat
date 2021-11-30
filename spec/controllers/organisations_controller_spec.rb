@@ -2,26 +2,30 @@ require "rails_helper"
 require_relative "../support/helper_methods"
 
 RSpec.describe OrganisationsController, type: :controller do
+  login_user
+
+  before :each do
+    @sample_org = add_new_org
+  end
+
   describe 'GET organisations#index ' do
     it "displays exising organisations" do
-      organisation = add_new_org
       get :index
-      expect(assigns(:organisations)).to eq([organisation])
+      expect(assigns(:organisations)).to eq([@sample_org])
     end
   end
   
   describe 'GET organisations#show ' do
     it "finds and joins an organisation" do
-      expect(get: "/organisations/1").to route_to(
+      expect(get: "/organisations/#{@sample_org.id}").to route_to(
         controller: "organisations",
         action: "show",
-        id: "1"
+        id: "#{@sample_org.id}"
       )
     end
 
     it "finds and joins an organisation" do
-      add_new_org
-      get :show, xhr: true, params: { id: 2 }
+      get :show, xhr: true, params: { id: @sample_org.id }
       expect(response).to have_http_status(200)
     end
   end
@@ -39,7 +43,7 @@ RSpec.describe OrganisationsController, type: :controller do
           name: nil,
           hourly_rate: nil
         }
-      }
+      }, xhr: true
       expect{ get :create }.to raise_error(ActionController::ParameterMissing)
     end
 
@@ -50,26 +54,25 @@ RSpec.describe OrganisationsController, type: :controller do
   end
 
   describe 'PATCH organisations#update' do
-    let(:updated_org) { patch :update, :params => { id: Organisation.last.id,
+    let(:updated_org) { patch :update, :params => { id: @sample_org.id,
         :organisation => { name: 'Treehouse', hourly_rate: 18.00 }
-      }
+      }, xhr: true
     }
 
     before :each do
-      add_new_org
       updated_org
     end
 
     it "updates organisation and redirects its overview" do
-      expect(response).to redirect_to(organisations_url + "/#{Organisation.last.id}")
+      expect(response).to redirect_to(organisations_url)
     end
 
     it "informs user organisation updated successfully" do
-      expect(flash[:notice]).to match('Organisation updated successfully!')
+      expect(flash[:notice]).to match("Treehouse updated successfully!")
     end
 
-    it "updates organisation and responds with status 302" do
-      expect(response).to have_http_status(302)
+    it "updates organisation and responds with status 200" do
+      expect(response).to have_http_status(200)
     end
   end
 
@@ -77,7 +80,6 @@ RSpec.describe OrganisationsController, type: :controller do
     let(:delete_org) { delete :destroy, :params => { id: Organisation.last.id } }
     
     before :each do
-      add_new_org
       delete_org
     end
 
@@ -86,7 +88,7 @@ RSpec.describe OrganisationsController, type: :controller do
     end
 
     it "informs user organisation deleted successfully" do
-      expect(flash[:notice]).to match('Shift successfully deleted!')
+      expect(flash[:notice]).to match('Organisation successfully deleted!')
     end
 
     it "deletes organisation and responds with status 302" do
