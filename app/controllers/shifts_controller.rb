@@ -13,10 +13,11 @@ class ShiftsController < ApplicationController
   def create
     @shift = @organisation.shifts.create(shift_params)
     if @shift.save
-      # redirect_to organisations_path(@organisation), notice: 'Shift added!'
-      respond_with @organisation
+      redirect_to @organisation, notice: 'Shift added!'
+      # respond_with @organisation, notice: 'Shift added!'
     else
-      render :index, notice: 'Oops something went wront.. Please try again!'
+      redirect_to organisations_path(@organisation), notice: 'Oops something went wront.. Please try again!'
+      # render :index, notice: 'Oops something went wront.. Please try again!'
     end
   end
 
@@ -24,7 +25,7 @@ class ShiftsController < ApplicationController
     @shift = @organisation.shifts.find(params[:id])
 
     if @shift.update(shift_params)
-      redirect_to organisations_path(@organisation), notice: 'Shift updated successfully!'
+      redirect_to @organisation, notice: 'Shift updated successfully!'
     else
       render :index, notice: 'Oops something went wront.. Please try again!'
     end
@@ -32,7 +33,7 @@ class ShiftsController < ApplicationController
 
   def destroy
     @shift.destroy
-    redirect_to organisations_path(@organisation), notice: 'Shift deleted!'
+    redirect_to @organisation, notice: 'Shift deleted!'
   end
 
   private

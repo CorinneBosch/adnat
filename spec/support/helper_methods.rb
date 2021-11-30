@@ -42,7 +42,7 @@ def post_create_shift_params
       shift_start_time: '10:00',
       shift_end: Time.new(2021, 11, 27, 18, 11, 00),
       break_length: 30,
-      user_id: 1,
+      user_id: User.last.id,
       organisation_id: Organisation.last.id, 
     }, organisation_id: Organisation.last.id
   }

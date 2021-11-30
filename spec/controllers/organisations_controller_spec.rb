@@ -86,7 +86,7 @@ RSpec.describe OrganisationsController, type: :controller do
     end
 
     it "informs user organisation deleted successfully" do
-      expect(flash[:notice]).to match('Organisation successfully deleted!')
+      expect(flash[:notice]).to match('Shift successfully deleted!')
     end
 
     it "deletes organisation and responds with status 302" do
