@@ -1,5 +1,4 @@
 require "rails_helper"
-require_relative "../support/helper_methods"
 
 RSpec.describe ShiftsController, type: :controller do
   login_user

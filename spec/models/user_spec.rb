@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative'../support/helper_methods'
 
 RSpec.describe User, type: :model do
   # include ActionDispatch::TestProcess::FixtureFile
@@ -18,7 +17,6 @@ RSpec.describe User, type: :model do
   end
 
   it "stores create user in table" do
-    user = add_new_user
     expect(User.count).to eq 1
   end
 

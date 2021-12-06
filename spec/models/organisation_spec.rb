@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative'../support/helper_methods'
 
 RSpec.describe Organisation, type: :model do
 

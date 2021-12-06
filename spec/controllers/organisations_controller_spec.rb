@@ -1,5 +1,4 @@
 require "rails_helper"
-require_relative "../support/helper_methods"
 
 RSpec.describe OrganisationsController, type: :controller do
   login_user

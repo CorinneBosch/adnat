@@ -12,8 +12,6 @@ FactoryBot.define do
   end
 
   # factory :shift do
-  #   name { "Joe" }
-  #   email { "joe@gmail.com" }
-  #   password { "blah" }
+
   # end
 end

@@ -8,14 +8,14 @@ require 'rspec/rails'
 require 'support/factory_bot'
 require 'devise'
 # Add additional requires below this line. Rails is not loaded until this point!
-
+require_relative 'support/factories.rb'
 require_relative 'support/controller_macros' 
+require_relative 'support/helper_methods'
 
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.extend ControllerMacros, :type => :controller
-  # config.include FactoryBot::Syntax::Methods
 end
 
 require_relative 'support/controller_macros' 
