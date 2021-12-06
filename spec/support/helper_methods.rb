@@ -6,7 +6,7 @@ def add_new_user
   )
 end
 
-def add_new_org
+def add_new_organisation
   Organisation.create(    
     name: 'Hogwarts',
     hourly_rate: 12.50

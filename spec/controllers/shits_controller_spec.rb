@@ -5,7 +5,7 @@ RSpec.describe ShiftsController, type: :controller do
   login_user
 
   before :each do
-    @sample_org = add_new_org
+    @sample_org = add_new_organisation
   end
 
   describe 'GET shifts#index ' do
