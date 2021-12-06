@@ -2,7 +2,7 @@ require 'rails_helper'
 require_relative'../support/helper_methods'
 
 RSpec.describe User, type: :model do
-  include ActionDispatch::TestProcess::FixtureFile
+  # include ActionDispatch::TestProcess::FixtureFile
 
   before :each do
     @user1 = create(:user)

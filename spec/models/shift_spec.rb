@@ -2,7 +2,6 @@ require 'rails_helper'
 require_relative'../support/helper_methods'
 
 RSpec.describe Shift, type: :model do
-  include ActionDispatch::TestProcess::FixtureFile
 
   it "can create new shift" do
     add_new_user

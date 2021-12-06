@@ -2,7 +2,7 @@ require 'rails_helper'
 require_relative'../support/helper_methods'
 
 RSpec.describe Organisation, type: :model do
-  include ActionDispatch::TestProcess::FixtureFile
+  # include ActionDispatch::TestProcess::FixtureFile
 
   it "can create new organisation" do
     organisation = add_new_org

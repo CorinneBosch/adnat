@@ -26,6 +26,8 @@
 
 Shift Space is a simple programme that keeps track of your work shifts. Users can sign up, log in, create new organisations for their team to join and input their shifts. Every user is able to edit and delete an organisation. Once joined they are part of the organisation until they leave it. Users can edit or delete their own shifts in the table manually, others do not have access to do so.
 
+Edited version of adnat
+
 <!-- This app is deployed on [Heroku](https://whispering-woodland-40745.herokuapp.com/). -->
 
 ## <a name="Planning">Planning & Domain Model</a>
