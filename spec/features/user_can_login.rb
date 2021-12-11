@@ -21,4 +21,12 @@ RSpec.feature 'Log in', type: :feature do
     click_button 'Log in'
     expect(page).to have_current_path(user_session_url)
   end
+
+  scenario 'Informs user when given invalid email or password' do
+    visit user_session_url
+    fill_in :email, with: 'wrongpassword'
+    fill_in :password, with: 'wrong@email.com'
+    click_button 'Log in'
+    expect(page).to have_content 'Invalid Email or password.'
+  end
 end
