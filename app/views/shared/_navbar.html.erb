@@ -1,5 +1,5 @@
 <nav class='bar-box'>
-  <div class="some-collapse-navbar">
+  <div class='some-collapse-navbar'>
     <li class='logo-li'>
       <% if user_signed_in? %>
         <%# <% user_org_id = current_user.organisation_id %>
@@ -10,8 +10,8 @@
       <% end %>
     </li>
     <% if user_signed_in? %>
-      <li class="li-box">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <li class='li-box'>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, id: 'log-out' %>
       </li>
         <% if current_user.organisation_id != nil %>
           <li class='li-box'>
@@ -21,14 +21,12 @@
                          data: { confirm: "Are you sure?" } %>
           </li>
         <% end %>
-      <%# <li class="li-box"> %>
         <p id='vp'>Logged in as <%= current_user.name %></p>
-      <%# </li> %>
     <% else %>
-      <li class="li-box">
+      <li class='li-box'>
         <%= link_to "Log In", new_user_session_path %>
       </li>
-      <li class="li-box">
+      <li class='li-box'>
         <%= link_to "Sign Up", new_user_registration_path %>
       </li>
     <% end %>

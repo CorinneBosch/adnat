@@ -14,6 +14,14 @@ RSpec.feature 'Log in', type: :feature do
     expect(page).to have_current_path(organisations_url)
   end
 
+  scenario 'Informs user when successfuly signed in' do
+    visit user_session_url
+    fill_in :email, with: @user.email
+    fill_in :password, with: @user.password
+    click_button 'Log in'
+    expect(page).to have_content 'Signed in successfully.'
+  end
+
   scenario 'Unable to login with invalid details' do
     visit user_session_url
     fill_in :email, with: 'wrongpassword'
