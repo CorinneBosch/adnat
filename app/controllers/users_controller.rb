@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def join_organisation
     @organisation = Organisation.find(params[:org_id])
     @user.update(organisation_id: @organisation.id)
-    redirect_to (organisations_path + "/#{@organisation.id}")
+    redirect_to (organisations_path + "/#{@organisation.id}"), notice: 'Joined organisation!'
   end
 
   def leave_organisation

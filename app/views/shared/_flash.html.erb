@@ -10,3 +10,16 @@
   </div>
 <% end %>
 
+<% if flash[:success] %>
+  <div id='notice'>
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<%# <% if @organisation.errors.any? %> 
+  <%# <div id='notice' > %>
+    <%# <% @organisation.errors.full_messages.each do |msg| %> 
+      <%# <%= msg %> 
+    <%# <% end %> 
+  <%# </div> %>
+<%# <% end %> 

@@ -5,11 +5,13 @@
     <p>You aren't a member of any organisation yet</p>
     <p>Join an existing organisation or create a new one</p>
   <% end %>
+
   <%= render partial: "organisations/helper-functions" %>
   <button class='sml-button' onclick="displayAddOrg()">Create new Organisation</button>
   <div id="hidden-add-org" style='display:none'>
       <%= render partial: "new" %> 
   </div>
+
   <ul>
     <% @organisations.each do |org| %>
       <div class='each-org'>
@@ -18,15 +20,14 @@
 
         <br><% org_id = org.id %><br>
         <div id='flex'>
-        <%= button_to "Join", users_join_organisation_path(@user, org_id: org_id),
-                              method: :post, :class => 'sml-join', remote: true %>
+          <%= button_to "Join", users_join_organisation_path(@user, org_id: org_id),
+                                method: :post, :class => 'sml-join', :id => 'join', remote: true %>
 
-        <div id=<%= "edit-org-#{org.id}" %> >
-          <%= button_to "Edit", edit_organisation_path(@organisation, id: org_id), 
-                                method: :get, :class => 'sml-edit', remote: true  %>
+          <div id=<%= "edit-org-#{org.id}" %> >
+            <%= button_to "Edit", edit_organisation_path(@organisation, id: org_id), 
+                                  method: :get, :class => 'sml-edit', remote: true  %>
+          </div>
         </div>
-      </div>
-
       </div>
     <% end %>
   </ul>
