@@ -275,20 +275,21 @@ form input[type='password'] {
 }
 
 #notice {
-  position: fixed;
+  // position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   position: relative;
   padding: 20px;
-  width: 60%;
+  width: 50%;
   color: black;
   border-radius: 12px;
   text-align: center;
   background-color: #fadbdb;
   box-shadow: 0px 10px 20px #5536cc;
   border: 2px solid #036363;
+  margin-bottom: -7%;
   margin-top: 7%;
 }
 

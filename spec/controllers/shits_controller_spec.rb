@@ -1,11 +1,10 @@
 require "rails_helper"
-require_relative "../support/helper_methods"
 
 RSpec.describe ShiftsController, type: :controller do
   login_user
 
   before :each do
-    @sample_org = add_new_org
+    @sample_org = add_new_organisation
   end
 
   describe 'GET shifts#index ' do

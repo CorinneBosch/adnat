@@ -6,7 +6,7 @@ def add_new_user
   )
 end
 
-def add_new_org
+def add_new_organisation
   Organisation.create(    
     name: 'Hogwarts',
     hourly_rate: 12.50
@@ -46,4 +46,11 @@ def post_create_shift_params
       organisation_id: Organisation.last.id, 
     }, organisation_id: Organisation.last.id
   }
+end
+
+def log_in_user
+  visit user_session_url
+  fill_in :email, with: @user.email
+  fill_in :password, with: @user.password
+  click_button 'Log in'
 end

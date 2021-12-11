@@ -20,7 +20,7 @@ class OrganisationsController < ApplicationController
       join_organisation
       redirect_to @organisation, notice: 'Organisation created successfully!'
     else
-      render :new, notice: 'Oops something went wront.. Please try again!'
+      render :index, notice: 'Oops something went wront.. Please try again!'
     end
   end
 

@@ -1,19 +1,17 @@
 require 'rails_helper'
-require_relative'../support/helper_methods'
 
 RSpec.describe Shift, type: :model do
-  include ActionDispatch::TestProcess::FixtureFile
 
   it "can create new shift" do
     add_new_user
-    add_new_org
+    add_new_organisation
     shift = add_new_shift
     expect(shift).to be_valid
   end
 
   it "stores create shift in table" do
     add_new_user
-    add_new_org
+    add_new_organisation
     shift = add_new_shift
     expect(Shift.count).to eq 1
   end
@@ -28,7 +26,7 @@ RSpec.describe Shift, type: :model do
     }
 
     before :each do
-      add_new_org
+      add_new_organisation
     end
 
     it "is not validated without employee attribute" do
